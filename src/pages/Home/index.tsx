@@ -7,7 +7,7 @@ import { formatPrice } from '../../util/format';
 import { useCart } from '../../hooks/useCart';
 
 interface Product {
-  id: number;
+  id: string;
   title: string;
   price: number;
   image: string;
@@ -21,12 +21,12 @@ interface CartItemsAmount {
   [key: number]: number;
 }
 
-const Home = (): JSX.Element => {
-  // const [products, setProducts] = useState<ProductFormatted[]>([]);
-  // const { addProduct, cart } = useCart();
+export function Home(){
+  const [products, setProducts] = useState<ProductFormatted[]>([]);
+  const { addProduct, cart } = useCart();
 
   // const cartItemsAmount = cart.reduce((sumAmount, product) => {
-  //   // TODO
+     
   // }, {} as CartItemsAmount)
 
   useEffect(() => {
@@ -64,4 +64,3 @@ const Home = (): JSX.Element => {
   );
 };
 
-export default Home;
