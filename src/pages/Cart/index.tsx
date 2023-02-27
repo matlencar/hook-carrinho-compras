@@ -1,27 +1,29 @@
 import React from 'react';
+import { useCart } from '../../hooks/useCart';
+//import { formatPrice } from '../../util/format';
+
 import {
   MdDelete,
   MdAddCircleOutline,
   MdRemoveCircleOutline,
 } from 'react-icons/md';
 
-// import { useCart } from '../../hooks/useCart';
-// import { formatPrice } from '../../util/format';
 import { Container, ProductTable, Total } from './styles';
 
 interface Product {
-  id: number;
+  id: string;
   title: string;
   price: number;
   image: string;
   amount: number;
 }
 
-const Cart = (): JSX.Element => {
-  // const { cart, removeProduct, updateProductAmount } = useCart();
+export function Cart() {
+  const [product, setProduct] = useState([])
+   const { cart, removeProduct, updateProductAmount } = useCart();
 
   // const cartFormatted = cart.map(product => ({
-  //   // TODO
+    
   // }))
   // const total =
   //   formatPrice(
@@ -31,15 +33,18 @@ const Cart = (): JSX.Element => {
   //   )
 
   function handleProductIncrement(product: Product) {
-    // TODO
+    const incremment = cart.map(cart => cart.amount++);
+    return incremment
   }
 
   function handleProductDecrement(product: Product) {
-    // TODO
+    const decrement = cart.map(cart => cart.amount--);
+    return decrement
   }
 
-  function handleRemoveProduct(productId: number) {
-    // TODO
+  function handleRemoveProduct(productId: string) {
+    const remove = cart.filter(cart => cart.id != productId);
+    
   }
 
   return (
@@ -116,4 +121,3 @@ const Cart = (): JSX.Element => {
   );
 };
 
-export default Cart;
