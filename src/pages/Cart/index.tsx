@@ -19,13 +19,13 @@ interface Product {
 }
 
 export function Cart() {
-  const [product, setProduct] = useState([])
+  
    const { cart, removeProduct, updateProductAmount } = useCart();
 
   // const cartFormatted = cart.map(product => ({
     
   // }))
-  // const total =
+  // const total = 
   //   formatPrice(
   //     cart.reduce((sumTotal, product) => {
   //       // TODO
